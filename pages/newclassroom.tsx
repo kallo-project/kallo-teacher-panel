@@ -1,5 +1,4 @@
 // #region Load modules
-import Router from 'next/router';
 import Head from 'next/head';
 import io from 'socket.io-client';
 import ReactDOMServer from 'react-dom/server';
@@ -7,7 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useRef, useState } from 'react';
 import { enableButton, loadingButton, normalButton, setDisplayStyle, showAlert } from '../utilities';
-import { Base, ColumnOne, ColumnTwo, Alert, CardBody, LabelHelp, Modal } from '../components';
+import { Base, ColumnOne, ColumnTwo, Alert, CardBody, LabelHelp } from '../components';
 
 const socket = io(process.env.BACKEND_HOST);
 // #endregion
@@ -43,10 +42,7 @@ const newClassroom = () => {
 
       if (/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(url) && !allowedSites.includes(url)) {
         setAllowedSites((previousSites) => [...previousSites, url]);
-
-        const parent = document.getElementById('allowedSites');
-
-        parent.innerHTML += ReactDOMServer.renderToStaticMarkup(<li>{url}</li>);
+        document.getElementById('allowedSites').innerHTML += ReactDOMServer.renderToStaticMarkup(<li>{url}</li>);
 
         const div = 'allowedSiteGroup';
 
@@ -105,7 +101,8 @@ const newClassroom = () => {
         return showAlert(responseJson.error);
       }
 
-      Router.push(`/classroom/${responseJson.class_id}/students`);
+      // We were having some issues with dynamically loading the classroom page (Router.push functon).
+      window.location = `/classroom/${responseJson.class_id}/students`;
     } catch (e) {
       normalButton('Create', submitButton);
       showAlert(`An unknown error occurred: ${e.message}`);
@@ -118,8 +115,6 @@ const newClassroom = () => {
       <Head>
         <title>Kallo - New Classroom</title>
       </Head>
-      
-      <Modal />
 
       <Base>
         <ColumnOne>
