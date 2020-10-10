@@ -22,7 +22,7 @@ Starting application (after building): `npm run start`
 
 `API_VERSION`—API version (currently `v1`)
 
-G_SITE_KEY—Google ReCaptcha (public) site key
+`G_SITE_KEY`—Google ReCaptcha (public) site key
 
 ----
 
