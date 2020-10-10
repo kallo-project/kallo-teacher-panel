@@ -7,7 +7,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useRef, useState } from 'react';
 import { enableButton, loadingButton, normalButton, setDisplayStyle, showAlert } from '../utilities';
-import { Base, ColumnOne, ColumnTwo, Alert, CardBody, LabelHelp } from '../components';
+import { Base, ColumnOne, ColumnTwo, Alert, CardBody, LabelHelp, Modal } from '../components';
 
 const socket = io(process.env.BACKEND_HOST);
 // #endregion
@@ -118,6 +118,8 @@ const newClassroom = () => {
       <Head>
         <title>Kallo - New Classroom</title>
       </Head>
+      
+      <Modal />
 
       <Base>
         <ColumnOne>
