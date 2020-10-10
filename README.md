@@ -18,7 +18,7 @@ Starting application (after building): `npm run start`
 ### Environment Variables
 `HOST`—URL of where this is hosted (example: https://localhost:3000)
 
-`BACKEND_HOST`—Backend URL (example: https://localhost:8080)
+`BACKEND_HOST`—Back-end URL (example: https://localhost:8080)
 
 `API_VERSION`—API version (currently `v1`)
 
