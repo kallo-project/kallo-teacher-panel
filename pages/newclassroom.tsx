@@ -102,7 +102,7 @@ const newClassroom = () => {
       }
 
       // We were having some issues with dynamically loading the classroom page (Router.push functon).
-      window.location = `/classroom/${responseJson.class_id}/students`;
+      window.location = `/classroom/${responseJson.class_id}/students` as any;
     } catch (e) {
       normalButton('Create', submitButton);
       showAlert(`An unknown error occurred: ${e.message}`);
