@@ -1,14 +1,11 @@
 // #region Load modules
 import Head from 'next/head';
-import io from 'socket.io-client';
 import ReactDOMServer from 'react-dom/server';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { useRef, useState } from 'react';
 import { enableButton, loadingButton, normalButton, setDisplayStyle, showAlert } from '../utilities';
 import { Base, ColumnOne, ColumnTwo, Alert, CardBody, LabelHelp } from '../components';
-
-const socket = io(process.env.BACKEND_HOST);
 // #endregion
 
 const newClassroom = () => {
